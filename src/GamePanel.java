@@ -22,8 +22,8 @@ Timer time=  new Timer(40, this);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        fb.floppyAcceleration += fb.flappyImpulse;
-        fb.flappyVelocity += fb.floppyAcceleration;
+        fb.flappyAcceleration += 1;
+        fb.flappyVelocity += fb.flappyAcceleration;
         w.wallX[0] -= WALLXVelocity;
         w.wallX[1] -= WALLXVelocity;
         repaint();
@@ -34,13 +34,14 @@ Timer time=  new Timer(40, this);
         if (!w.gameOver) {
             g.setColor(Color.green);
             g.drawString("SCORE:"+w.score,PWIDTH/2,10);
-            w.logic();
             w.drawWall(g);
+            w.logic();
             fb.drawBird(g);
         }
 else{
             g.setColor(Color.green);
             g.drawString("SCORE:"+w.score,PWIDTH/2,10);
+            System.out.println("Hello");
         }
     }
 
@@ -50,7 +51,7 @@ else{
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
         if (code == e.VK_SPACE) {
-            fb.floppyAcceleration = -10;
+            fb.flappyAcceleration = -10;
         }
         if (code == e.VK_S)
             time.start();
@@ -58,7 +59,7 @@ else{
             time.stop();
             fb.flappyHeight = HEIGHT / 4;
             fb.flappyVelocity = 0;
-            fb.floppyAcceleration = 4;
+            fb.flappyAcceleration = 4;
             w.score=0;
             w.wallX[0] = PWIDTH;
             w.wallX[1] = PWIDTH + PWIDTH / 2;

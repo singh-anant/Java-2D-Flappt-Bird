@@ -22,16 +22,15 @@ public class Walls implements GameConstant, FlappyBirdAndWallConstant {
         public void logic() {
             for (int i = 0; i < 2; i++) {
                 if (wallX[i] <= 100 && wallX[i] + WALLWIDTH >= 100 || wallX[i] <= 75 && wallX[i] + WALLWIDTH >= 75) {
-                    {
-                        gameOver = fb.logic1(gap[i]);
-                    }
+                        gameOver = fb.logic1(gap[i]) && fb.logic2();;
                 }
-                  gameOver=fb.logic2();
+
                 if (75 > wallX[i]+WALLWIDTH ) {
                     score++;
                 }
                 if (wallX[i] + WALLWIDTH <= 0) {
                     wallX[i] = PWIDTH;
+                    // Regenerate the gap here when the wall goes off the screen
                     gap[i] = (int) (Math.random() * (PHEIGHT - 150));
                 }
             }

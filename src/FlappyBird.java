@@ -3,10 +3,9 @@ import java.awt.*;
 public class FlappyBird implements GameConstant,FlappyBirdAndWallConstant {
     int flappyHeight = PHEIGHT / 4;
     int flappyVelocity = 0;
-    int floppyAcceleration = 4;
-    int flappyImpulse = 1;
+    int flappyAcceleration = 4;
 
-    public void drawBird(Graphics g) {
+    public void  drawBird(Graphics g) {
         g.setColor(Color.yellow);
         g.fillRect(75, flappyHeight + flappyVelocity, BIRDWIDTH, BIRDHEIGHT);
     }
